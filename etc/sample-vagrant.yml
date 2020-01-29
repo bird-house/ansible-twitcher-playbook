@@ -4,3 +4,7 @@ db_install_postgresql: true
 db_install_sqlite: false
 # twitcher
 twitcher_enable_https: false
+# keycloak
+keycloak_url: "http://localhost:8080"
+keycloak_token_secret: "public_key_from_keycloak"
+keycloak_fetch_public_key: false

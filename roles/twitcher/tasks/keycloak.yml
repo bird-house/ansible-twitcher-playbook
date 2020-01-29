@@ -1,0 +1,6 @@
+---
+- set_fact:
+    keycloak_token_secret: "{{ (lookup('url', '{{ keycloak_public_certs_url }}') | from_json)['keys'][0]['x5c'][0] }}"
+  tags:
+    - keycloak
+  when: keycloak_fetch_public_key

@@ -59,3 +59,6 @@ twitcher_bind: "unix:{{ twitcher_run_dir }}/twitcher.sock"
 # twitcher keycloak
 keycloak_url: "http://localhost:8080"
 keycloak_token_secret: "public_key_from_keycloak"
+keycloak_fetch_public_key: false
+keycloak_realm: master
+keycloak_public_certs_url: "{{ keycloak_url }}/auth/realms/{{ keycloak_realm }}/protocol/openid-connect/certs"

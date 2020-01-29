@@ -1,3 +1,4 @@
+---
 - name: Download esgf-ca-bundle.crt
   get_url:
     url: "{{ ssl_certs_cacert_url }}"

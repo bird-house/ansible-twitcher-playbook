@@ -5,6 +5,8 @@
 
 - include: folders.yml
 
+- include: keycloak.yml
+
 - include: config.yml
 
 - include: db.yml

@@ -65,6 +65,14 @@ Use brew_ to install Ansible:
   $ ansible --version
   ansible 2.7.2
 
+Use this workaround_ to a Python bug in macOS which can break Ansible:
+
+.. code-block:: console
+
+  $ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
+.. _workaround: https://github.com/ansible/ansible/issues/34056#issuecomment-352862252
+
 Conda
 ~~~~~
 

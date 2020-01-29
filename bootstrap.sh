@@ -1,13 +1,5 @@
 #!/bin/bash
 
-upgrade_redhat_6() {
-  echo "Upgrade Ansbile on RedHat 6"
-  sudo yum install python27
-  curl "https://bootstrap.pypa.io/get-pip.py" -o "/tmp/get-pip.py"
-  sudo python2.7 /tmp/get-pip.py
-  sudo pip install ansible
-}
-
 bootstrap() {
     echo "Bootstrap Ansible ..."
 
@@ -35,17 +27,11 @@ bootstrap() {
         sudo yum install -y epel-release
         sudo yum install -y gcc-c++ make
         sudo yum install -y ansible
-        major_release=$(cat /etc/redhat-release | tr -dc '0-9.'|cut -d \. -f1)
-        if [ $major_release = "6" ] ; then
-          if [ -f /etc/centos-release ] ; then
-            # needed for galaxy usage with python 2.6 on CentOS 6
-            sudo yum install -y python-urllib3 pyOpenSSL python2-ndg_httpsclient python-pyasn1
-          else
-            upgrade_redhat_6
-          fi
-        fi
     elif [ `uname -s` = "Darwin" ] ; then
         echo "Install Homebrew packages ..."
+        # Temporary workaround to Python bug in macOS High Sierra which can break Ansible
+        # https://github.com/ansible/ansible/issues/34056#issuecomment-352862252
+        export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
         brew install ansible
     fi
 }
