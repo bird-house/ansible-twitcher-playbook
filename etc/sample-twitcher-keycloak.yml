@@ -10,3 +10,4 @@ twitcher_enable_https: true
 twitcher_token_type: 'keycloak_token'
 keycloak_url: 'http://localhost:8080'
 keycloak_token_secret: 'public_key_from_keycloak'
+keycloak_fetch_public_key: false

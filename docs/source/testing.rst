@@ -34,6 +34,7 @@ You need Ansible locally installed:
   $ conda install -c conda-forge ansible
   OR
   $ brew install ansible # macOS only
+  $ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES # workaround needed on macOS
 
 Install Ansible roles:
 
